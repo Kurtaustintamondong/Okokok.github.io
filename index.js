@@ -26,6 +26,9 @@ function updateTotal() {
     var total = 0;
     total += parseFloat(qty1.value) * parseFloat(price1.textContent);
     total += parseFloat(qty2.value) * parseFloat(price2.textContent);
+    total += parseFloat(qty3.value) * parseFloat(price3.textContent);
+    total += parseFloat(qty4.value) * parseFloat(price4.textContent);
+    total += parseFloat(qty5.value) * parseFloat(price5.textContent);
     totalInput.value = total.toFixed(2); // Update total input field
     calculateChange(); // Calculate change after updating total
 }
@@ -42,4 +45,7 @@ function calculateChange() {
 }
 qty1.addEventListener("keyup", addOrder);
 qty2.addEventListener("keyup", addOrder);
+qty3.addEventListener("keyup", addOrder);
+qty4.addEventListener("keyup", addOrder);
+qty5.addEventListener("keyup", addOrder);
 cashInput.addEventListener("input", calculateChange);
