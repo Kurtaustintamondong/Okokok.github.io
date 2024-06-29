@@ -6,8 +6,7 @@ var qty2 = document.getElementById("qty2");
 var price2 = document.getElementById("price2");
 var product3 = document.getElementById("product3");
 var qty3 = document.getElementById("qty3");
-var price4 = document.getElementById("price3");
-
+var price3 = document.getElementById("price3");
 var carts = document.getElementById("carts");
 var totalInput = document.getElementById("total");
 var cashInput = document.getElementById("cash");
