@@ -7,6 +7,9 @@ var price2 = document.getElementById("price2");
 var product3 = document.getElementById("product3");
 var qty3 = document.getElementById("qty3");
 var price3 = document.getElementById("price3");
+var product4 = document.getElementById("product4");
+var qty4 = document.getElementById("qty4");
+var price4 = document.getElementById("price4");
 var carts = document.getElementById("carts");
 var totalInput = document.getElementById("total");
 var cashInput = document.getElementById("cash");
@@ -30,6 +33,11 @@ function addOrder() {
         carts.textContent += order3;
     }
 
+    if (parseFloat(qty4.value) > 0) {
+        var order4 = qty4.value.toString() + " pcs x " + product4.textContent + " - Php " + (parseFloat(qty4.value) * parseFloat(price4.textContent)).toFixed(2) + "\n";
+        carts.textContent += order4;
+    }
+
     updateTotal(); // Update total after adding orders
 }
 
@@ -41,6 +49,8 @@ function updateTotal() {
     total += parseFloat(qty2.value) * parseFloat(price2.textContent);
 
     total += parseFloat(qty3.value) * parseFloat(price3.textContent);
+
+    total += parseFloat(qty4.value) * parseFloat(price4.textContent);
 
     totalInput.value = total.toFixed(2); // Update total input field
     calculateChange(); // Calculate change after updating total
@@ -61,4 +71,5 @@ function calculateChange() {
 qty1.addEventListener("keyup", addOrder);
 qty2.addEventListener("keyup", addOrder);
 qty3.addEventListener("keyup", addOrder);
+qty4.addEventListener("keyup", addOrder);
 cashInput.addEventListener("input", calculateChange);
