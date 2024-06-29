@@ -26,7 +26,7 @@ function addOrder() {
     }
 
     if (parseFloat(qty3.value) > 0) {
-        var order2 = qty3.value.toString() + " pcs x " + product3.textContent + " - Php " + (parseFloat(qty3.value) * parseFloat(price3.textContent)).toFixed(2) + "\n";
+        var order3 = qty3.value.toString() + " pcs x " + product3.textContent + " - Php " + (parseFloat(qty3.value) * parseFloat(price3.textContent)).toFixed(2) + "\n";
         carts.textContent += order3;
     }
 
