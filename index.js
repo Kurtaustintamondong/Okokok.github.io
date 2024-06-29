@@ -28,27 +28,27 @@ function addOrder() {
 
     if (parseFloat(qty1.value) > 0) {
         var order1 = qty1.value.toString() + " pcs x " + product1.textContent + " - Php " + (parseFloat(qty1.value) * parseFloat(price1.textContent)).toFixed(2) + "\n";
-        carts.textContent += order
+        carts.textContent += order;
             
     }
     if (parseFloat(qty2.value) > 0) {
         var order2 = qty2.value.toString() + " pcs x " + product2.textContent + " - Php " + (parseFloat(qty2.value) * parseFloat(price2.textContent)).toFixed(2) + "\n";
-        carts.textContent += order
+        carts.textContent += order;
     }
 
     if (parseFloat(qty3.value) > 0) {
         var order2 = qty3.value.toString() + " pcs x " + product3.textContent + " - Php " + (parseFloat(qty3.value) * parseFloat(price3.textContent)).toFixed(2) + "\n";
-        carts.textContent += order
+        carts.textContent += order;
     }
 
     if (parseFloat(qty4.value) > 0) {
         var order2 = qty4.value.toString() + " pcs x " + product4.textContent + " - Php " + (parseFloat(qty4.value) * parseFloat(price4.textContent)).toFixed(2) + "\n";
-        carts.textContent += order
+        carts.textContent += order;
     }
 
     if (parseFloat(qty5.value) > 0) {
         var order2 = qty5.value.toString() + " pcs x " + product5.textContent + " - Php " + (parseFloat(qty5.value) * parseFloat(price5.textContent)).toFixed(2) + "\n";
-        carts.textContent += order
+        carts.textContent += order;
     }
     updateTotal(); // Update total after adding orders
 }
