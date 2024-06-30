@@ -78,6 +78,21 @@ function calculateChange() {
     }
 }
 
+function buyProducts() {
+    addOrder(); // Update orders list in textarea
+
+    var total = parseFloat(totalInput.value);
+    var cash = parseFloat(cashInput.value);
+
+    if (!isNaN(total) && !isNaN(cash) && cash >= total) {
+        var change = cash - total;
+        changeInput.value = change.toFixed(2); // Display change
+    } else {
+        alert("Insufficient cash or invalid input. Please check your payment.");
+    }
+}
+
+// Event listeners
 qty1.addEventListener("keyup", addOrder);
 qty2.addEventListener("keyup", addOrder);
 qty3.addEventListener("keyup", addOrder);
