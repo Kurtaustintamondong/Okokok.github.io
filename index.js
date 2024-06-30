@@ -58,10 +58,6 @@ function updateTotal() {
 
     total += parseFloat(qty3.value) * parseFloat(price3.textContent);
 
-    total += parseFloat(qty4.value) * parseFloat(price4.textContent);
-
-    total += parseFloat(qty5.value) * parseFloat(price5.textContent);
-
     totalInput.value = total.toFixed(2); // Update total input field
     calculateChange(); // Calculate change after updating total
 }
