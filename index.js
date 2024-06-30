@@ -87,9 +87,7 @@ function buyProducts() {
     if (!isNaN(total) && !isNaN(cash) && cash >= total) {
         var change = cash - total;
         changeInput.value = change.toFixed(2); // Display change
-    } else {
-        alert("Insufficient cash or invalid input. Please check your payment.");
-    }
+    } 
 }
 
 // Event listeners
