@@ -99,10 +99,14 @@ function buyProducts() {
     var total = parseFloat(totalInput.value);
     var cash = parseFloat(cashInput.value);
 
-    if (!isNaN(total) && !isNaN(cash) && cash >= total) {
-        var change = cash - total;
-        changeInput.value = change.toFixed(2); // Display change
-    } 
+    if (!isNaN(total) && !isNaN(cash)) {
+        if (cash >= total) {
+            var change = cash - total;
+            changeInput.value = change.toFixed(2); // Display change
+            alert("Purchase successful!\nChange: Php " + change.toFixed(2));
+        } else {
+            alert("Insufficient cash!");
+        }
 }
 
 // Event listeners
