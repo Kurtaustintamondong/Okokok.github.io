@@ -50,9 +50,11 @@ function addOrder() {
         var order5 = qty5.value.toString() + " pcs x " + product5.textContent + " - Php " + (parseFloat(qty5.value) * getPrice(price5)).toFixed(2) + "\n";
         carts.textContent += order5;
     }
+
+    updateTotal(); // Update total after adding orders
 }
 
-function calculateTotal() {
+function updateTotal() {
     var total = 0;
 
     if (parseFloat(qty1.value) > 0) {
@@ -75,10 +77,14 @@ function calculateTotal() {
         total += parseFloat(qty5.value) * getPrice(price5);
     }
 
-    return total;
+    totalInput.value = total.toFixed(2); // Update total input field
+    calculateChange(); // Calculate change after updating total
 }
 
-function calculateChange(total, cash) {
+function calculateChange() {
+    var total = parseFloat(totalInput.value);
+    var cash = parseFloat(cashInput.value);
+
     if (!isNaN(total) && !isNaN(cash)) {
         var change = cash - total;
         changeInput.value = change.toFixed(2); // Update change input field
@@ -90,9 +96,7 @@ function calculateChange(total, cash) {
 function buyProducts() {
     addOrder(); // Update orders list in textarea
 
-    var total = calculateTotal();
-    totalInput.value = total.toFixed(2);
-
+    var total = parseFloat(totalInput.value);
     var cash = parseFloat(cashInput.value);
 
     if (!isNaN(total) && !isNaN(cash)) {
@@ -100,8 +104,12 @@ function buyProducts() {
             var change = cash - total;
             changeInput.value = change.toFixed(2); // Display change
             alert("Purchase successful!\nChange: Php " + change.toFixed(2));
-        } 
-    } 
+        } else {
+            alert("Insufficient cash!");
+        }
+    } else {
+        alert("Please enter valid amounts for cash and quantities.");
+    }
 }
 
 // Event listeners
@@ -110,6 +118,4 @@ qty2.addEventListener("keyup", addOrder);
 qty3.addEventListener("keyup", addOrder);
 qty4.addEventListener("keyup", addOrder);
 qty5.addEventListener("keyup", addOrder);
-cashInput.addEventListener("input", function() {
-    changeInput.value = ""; // Clear the change input field when cash is entered
-});
+cashInput.addEventListener("input", calculateChange);
