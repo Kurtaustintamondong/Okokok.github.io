@@ -50,11 +50,9 @@ function addOrder() {
         var order5 = qty5.value.toString() + " pcs x " + product5.textContent + " - Php " + (parseFloat(qty5.value) * getPrice(price5)).toFixed(2) + "\n";
         carts.textContent += order5;
     }
-
-    updateTotal(); // Update total after adding orders
 }
 
-function updateTotal() {
+function calculateTotal() {
     var total = 0;
 
     if (parseFloat(qty1.value) > 0) {
@@ -77,14 +75,10 @@ function updateTotal() {
         total += parseFloat(qty5.value) * getPrice(price5);
     }
 
-    totalInput.value = total.toFixed(2); // Update total input field
-    calculateChange(); // Calculate change after updating total
+    return total;
 }
 
-function calculateChange() {
-    var total = parseFloat(totalInput.value);
-    var cash = parseFloat(cashInput.value);
-
+function calculateChange(total, cash) {
     if (!isNaN(total) && !isNaN(cash)) {
         var change = cash - total;
         changeInput.value = change.toFixed(2); // Update change input field
@@ -96,7 +90,9 @@ function calculateChange() {
 function buyProducts() {
     addOrder(); // Update orders list in textarea
 
-    var total = parseFloat(totalInput.value);
+    var total = calculateTotal();
+    totalInput.value = total.toFixed(2);
+
     var cash = parseFloat(cashInput.value);
 
     if (!isNaN(total) && !isNaN(cash)) {
@@ -104,9 +100,8 @@ function buyProducts() {
             var change = cash - total;
             changeInput.value = change.toFixed(2); // Display change
             alert("Purchase successful!\nChange: Php " + change.toFixed(2));
-        } else {
-            alert("Insufficient cash!");
-        }
+        } 
+    } 
 }
 
 // Event listeners
@@ -115,4 +110,6 @@ qty2.addEventListener("keyup", addOrder);
 qty3.addEventListener("keyup", addOrder);
 qty4.addEventListener("keyup", addOrder);
 qty5.addEventListener("keyup", addOrder);
-cashInput.addEventListener("input", calculateChange);
+cashInput.addEventListener("input", function() {
+    changeInput.value = ""; // Clear the change input field when cash is entered
+});
