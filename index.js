@@ -74,7 +74,7 @@ function calculateChange() {
         var change = cash - total;
         changeInput.value = change.toFixed(2); // Update change input field
     } else {
-        changeInput.value = "0";
+        changeInput.value = "";
     }
 }
 
