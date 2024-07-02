@@ -20,7 +20,7 @@ function getPrice(priceLabel) {
 // Function to add orders to the cart
 function addOrder(product, qtyInput, priceLabel) {
     const qty = parseFloat(qtyInput.value);
-    if (qty > 0) {
+    if (!isNaN(qty) && qty > 0) {
         const order = `${qty} pcs x ${product.name} - Php ${(qty * getPrice(priceLabel)).toFixed(2)}\n`;
         carts.textContent += order;
     }
@@ -31,8 +31,9 @@ function updateTotal() {
     let total = 0;
     products.forEach(product => {
         const qtyInput = document.getElementById(product.qtyId);
-        if (parseFloat(qtyInput.value) > 0) {
-            total += parseFloat(qtyInput.value) * getPrice(document.getElementById(product.priceId));
+        const qty = parseFloat(qtyInput.value);
+        if (!isNaN(qty) && qty > 0) {
+            total += qty * getPrice(document.getElementById(product.priceId));
         }
     });
     totalInput.value = total.toFixed(2);
