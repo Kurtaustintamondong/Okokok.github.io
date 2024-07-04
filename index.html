@@ -33,6 +33,10 @@
         }
         .img-thumbnail {
             border: none;
+            transition: transform 0.3s ease;
+        }
+        .img-thumbnail:hover {
+            transform: scale(1.1);
         }
         .product-card label {
             font-weight: bold;
@@ -45,6 +49,9 @@
         }
         textarea, input {
             background-color: rgba(255, 255, 255, 0.8);
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
@@ -117,14 +124,14 @@
     <script src="index.js"></script>
     
     <footer class="bg-dark text-white text-center py-3 mt-5">
-    <div class="container">
-        <p>&copy; By: Kurt Austin V. Tamondong. BSIT 3-B.</p>
-        <p>1234 Diyata Pares Overcooked | Phone: (123) 456-7890</p>
-        <p>
-            <a href="#" class="text-white me-3">Privacy Policy</a>
-            <a href="#" class="text-white">Terms of Service</a>
-        </p>
-    </div>
+        <div class="container">
+            <p>&copy; By: Kurt Austin V. Tamondong. BSIT 3-B.</p>
+            <p>1234 Diyata Pares Overcooked | Phone: (123) 456-7890</p>
+            <p>
+                <a href="#" class="text-white me-3">Privacy Policy</a>
+                <a href="#" class="text-white">Terms of Service</a>
+            </p>
+        </div>
     </footer>
 </body>
 </html>
