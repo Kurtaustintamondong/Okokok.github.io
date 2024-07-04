@@ -14,22 +14,31 @@
             background-size: cover; 
             background-position: center;
             color: white;
+            font-family: 'Arial', sans-serif;
         }
         .navbar {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
         }
         .navbar-brand {
             color: white;
+            font-size: 1.5em;
+            font-weight: bold;
         }
         .navbar-brand:hover {
             color: #ddd;
         }
         .product-card {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
         .img-thumbnail {
             border: none;
@@ -51,7 +60,14 @@
             background-color: rgba(255, 255, 255, 0.8);
         }
         footer {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ddd;
+        }
+        footer a {
+            color: #ddd;
+        }
+        footer a:hover {
+            color: white;
         }
     </style>
 </head>
@@ -123,13 +139,13 @@
     </div>
     <script src="index.js"></script>
     
-    <footer class="bg-dark text-white text-center py-3 mt-5">
+    <footer class="text-white text-center py-3 mt-5">
         <div class="container">
             <p>&copy; By: Kurt Austin V. Tamondong. BSIT 3-B.</p>
             <p>1234 Diyata Pares Overcooked | Phone: (123) 456-7890</p>
             <p>
-                <a href="#" class="text-white me-3">Privacy Policy</a>
-                <a href="#" class="text-white">Terms of Service</a>
+                <a href="#" class="me-3">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
             </p>
         </div>
     </footer>
